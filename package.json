@@ -1,0 +1,19 @@
+{
+  "name": "ana-carolina-terapeuta-manual",
+  "version": "1.0.0",
+  "description": "Landing Page de Alto Padrão - Ana Carolina Terapeuta Manual",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "landing-page",
+    "terapeuta-manual",
+    "ana-carolina",
+    "bem-estar",
+    "estetica"
+  ],
+  "author": "Ana Carolina",
+  "license": "ISC"
+}

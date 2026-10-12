@@ -1,0 +1,197 @@
+/* 
+ * Ana Carolina - Terapeuta Manual
+ * Design System de Alto Padrão & Estilos Complementares
+ * Paleta: Creme Suave (#F9F7F2) | Verde Floresta Profundo (#1A3C34) | Dourado Real (#C5A059)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-cream-base: #F9F7F2;
+  --color-cream-light: #FDFBF8;
+  --color-cream-dark: #F0EAE1;
+  
+  --color-forest-dark: #112823;
+  --color-forest-base: #1A3C34;
+  --color-forest-medium: #275348;
+  --color-forest-light: #387364;
+
+  --color-gold-base: #C5A059;
+  --color-gold-light: #DFC288;
+  --color-gold-dark: #A4813A;
+  --color-gold-subtle: rgba(197, 160, 89, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--color-cream-base);
+  color: var(--color-forest-base);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #F9F7F2;
+  color: #1A3C34;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #C5A059;
+  color: #FFFFFF;
+}
+
+/* Scrollbar Elegante Dourada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9F7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 9999px;
+  border: 2px solid #F9F7F2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A4813A;
+}
+
+/* Tipografia Fina */
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-script-luxury {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-sans-luxury {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Gradientes Metálicos Nobres */
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #E2C792 0%, #C5A059 50%, #A4813A 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #DFC288 0%, #C5A059 50%, #A4813A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.45);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 15px 35px -8px rgba(197, 160, 89, 0.55);
+}
+
+.forest-glow {
+  box-shadow: 0 20px 40px -15px rgba(26, 60, 52, 0.12);
+}
+
+/* Botão com Brilho Passante (Sheen Effect) */
+.btn-gold-sheen {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.btn-gold-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: all 0.8s ease;
+}
+
+.btn-gold-sheen:hover::after {
+  left: 120%;
+}
+
+/* Micro-Animações Suaves */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+/* Linha Divisória de Luxo com Flor de Lótus */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C5A059, transparent);
+  flex: 1;
+  max-width: 120px;
+}
+
+/* Card com Hover Elevado e Borda Dourada Suave */
+.luxury-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(26, 60, 52, 0.12);
+  border-color: rgba(197, 160, 89, 0.6);
+}
+
+/* Estilo para Accordion Suave */
+.faq-content {
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.faq-content.open {
+  max-height: 450px;
+  opacity: 1;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.open {
+  transform: rotate(180deg);
+}
+
+/* Suporte de fallback gracioso para Animações: visibilidade garantida */
+[data-aos] {
+  opacity: 1;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
